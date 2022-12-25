@@ -1,16 +1,14 @@
 <template>
   <article class="flex flex-col items-center gap-4 py-6">
     <TheUser v-if="selectedUser" v-bind="selectedUser" />
-    <section v-else>
-      <h1 class="text-5xl font-bold text-center text-red-500 mt-12">
-        User not found!
-      </h1>
-    </section>
   </article>
 </template>
 <script>
 import TheUser from "../../components/TheUser.vue";
 export default {
+  validate(data) {
+    return /^.{5}$/.test(data.params.id);
+  },
   components: {
     TheUser,
   },
