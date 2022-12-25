@@ -6,3 +6,9 @@
     <nuxt-child></nuxt-child>
   </article>
 </template>
+
+<script>
+export default {
+  layout: "users",
+};
+</script>

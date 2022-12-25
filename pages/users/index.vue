@@ -7,6 +7,7 @@
 <script>
 import TheUser from "../../components/TheUser.vue";
 export default {
+  layout: "users",
   components: {
     TheUser,
   },

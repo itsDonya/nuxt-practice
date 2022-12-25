@@ -6,6 +6,7 @@
 <script>
 import TheUser from "../../components/TheUser.vue";
 export default {
+  layout: "users",
   validate(data) {
     return /^.{5}$/.test(data.params.id);
   },
