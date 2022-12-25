@@ -1,0 +1,19 @@
+{
+  "name": "nuxt-practice",
+  "version": "1.0.0",
+  "description": "Practice nuxt.js (version 2)",
+  "author": "Donya",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^1.0.0"
+  }
+}
