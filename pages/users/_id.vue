@@ -13,20 +13,30 @@ export default {
   components: {
     TheUser,
   },
-  asyncData(context, callback) {
-    setTimeout(() => {
-      console.log(context);
-      callback(null, {
-        user: {
-          name: "Donya",
-          lastName: "Davoodi",
-          age: 17,
-          role: "Junior front-end developer",
-          city: "Babolsar",
-          id: context.params.id,
-        },
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log(context);
+        resolve({
+          user: {
+            name: "Donya",
+            lastName: "Davoodi",
+            age: 17,
+            role: "Junior front-end developer",
+            city: "Babolsar",
+            id: context.params.id,
+          },
+        });
+      }, 150);
+      // reject(new Error());
+    })
+      .then((data) => {
+        return data;
+      })
+      .catch((e) => {
+        // context.error(new Error());
+        context.error(e);
       });
-    }, 150);
   },
 };
 </script>
