@@ -1,6 +1,6 @@
 <template>
   <article class="flex flex-col items-center gap-4 py-6">
-    <TheUser v-if="selectedUser" v-bind="selectedUser" />
+    <TheUser v-bind="user" />
   </article>
 </template>
 <script>
@@ -13,42 +13,20 @@ export default {
   components: {
     TheUser,
   },
-  data() {
-    return {
-      selectedUser: null,
-      users: [
-        {
+  asyncData(context, callback) {
+    setTimeout(() => {
+      console.log(context);
+      callback(null, {
+        user: {
           name: "Donya",
           lastName: "Davoodi",
           age: 17,
           role: "Junior front-end developer",
           city: "Babolsar",
-          id: "23f8d",
+          id: context.params.id,
         },
-        {
-          name: "Arezoo",
-          lastName: "Rezaei",
-          age: 23,
-          role: "Back-end developer",
-          city: "Ahvaz",
-          id: "pa21d",
-        },
-        {
-          name: "Armita",
-          lastName: "Jahani",
-          age: 37,
-          role: "Full-stack developer",
-          city: "Tehran",
-          id: "8c3x1",
-        },
-      ],
-    };
-  },
-  mounted() {
-    const identifiedUser = this.users.find(
-      (user) => user.id === this.$route.params.id
-    );
-    this.selectedUser = identifiedUser;
+      });
+    }, 150);
   },
 };
 </script>
