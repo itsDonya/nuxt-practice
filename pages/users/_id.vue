@@ -28,13 +28,11 @@ export default {
           },
         });
       }, 150);
-      // reject(new Error());
     })
       .then((data) => {
         return data;
       })
       .catch((e) => {
-        // context.error(new Error());
         context.error(e);
       });
   },

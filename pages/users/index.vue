@@ -44,5 +44,9 @@ export default {
       });
     }, 3000);
   },
+  created() {
+    this.$store.dispatch("setUsers", this.users);
+    console.log(this.$store.getters.users);
+  },
 };
 </script>
