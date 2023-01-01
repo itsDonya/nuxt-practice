@@ -11,39 +11,21 @@ const createStore = () => {
       },
     },
     actions: {
-      nuxtServerInit(vueContext, context) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            // resolve({
-            vueContext.commit("setUsers", [
-              {
-                name: "Donyaaa",
-                lastName: "Davoodi",
-                age: 17,
-                role: "Junior front-end developer",
-                city: "Babolsar",
-                id: "23f8d",
-              },
-              {
-                name: "Arezoo",
-                lastName: "Rezaei",
-                age: 23,
-                role: "Back-end developer",
-                city: "Ahvaz",
-                id: "pa21d",
-              },
-              {
-                name: "Armita",
-                lastName: "Jahani",
-                age: 37,
-                role: "Full-stack developer",
-                city: "Tehran",
-                id: "8c3x1",
-              },
-            ]);
-            resolve();
-          }, 3000);
+      async nuxtServerInit(vueContext, context) {
+        let users = [];
+        const data = await fetch("https://jsonplaceholder.ir/users").then(
+          (res) => res.json()
+        );
+        data.forEach((user) => {
+          users.push({
+            name: user.name,
+            email: user.email,
+            phone: user.phone,
+            city: user.address.city,
+            id: user.id,
+          });
         });
+        vueContext.commit("setUsers", users);
       },
       setUsers(vueContext, users) {
         vueContext.commit("setUsers", users);
