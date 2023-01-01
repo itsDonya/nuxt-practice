@@ -51,4 +51,12 @@ export default {
   env: {
     baseUrl: "https://jsonplaceholder.ir",
   },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: "*",
+        component: resolve(__dirname, "pages/index.vue"),
+      });
+    },
+  },
 };
