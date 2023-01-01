@@ -10,10 +10,17 @@ export default {
   components: {
     TheUser,
   },
+  head() {
+    return {
+      title: this.user.name,
+    };
+  },
   async asyncData(context) {
     const userInfo = await fetch(
-      `https://jsonplaceholder.ir/users/${context.params.id}`
-    ).then((res) => res.json());
+      `https://jsonplaceholder.ir/users/${context.params.slug}`
+    )
+      .then((res) => res.json())
+      .catch((e) => context.error(e));
     return {
       user: { ...userInfo, city: userInfo.address.city },
     };

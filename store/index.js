@@ -14,7 +14,7 @@ const createStore = () => {
       async nuxtServerInit(vueContext, context) {
         let users = [];
         const data = await fetch("https://jsonplaceholder.ir/users").then(
-          (res) => res.json()
+          (res) => res.json().catch((e) => context.error(e))
         );
         data.forEach((user) => {
           users.push({
