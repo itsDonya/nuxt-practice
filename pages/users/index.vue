@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import TheUser from "../../components/TheUser.vue";
+// import TheUser from "../../components/TheUser.vue";
 export default {
   layout: "users",
-  components: {
-    TheUser,
-  },
+  // components: {
+  //   TheUser,
+  // },
   computed: {
     users() {
       return this.$store.getters.users;

@@ -4,12 +4,8 @@
   </article>
 </template>
 <script>
-import TheUser from "../../components/TheUser.vue";
 export default {
   layout: "users",
-  components: {
-    TheUser,
-  },
   head() {
     return {
       title: this.user.name,
