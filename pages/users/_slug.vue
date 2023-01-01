@@ -17,7 +17,7 @@ export default {
   },
   async asyncData(context) {
     const userInfo = await fetch(
-      `https://jsonplaceholder.ir/users/${context.params.slug}`
+      `${process.env.baseUrl}/users/${context.params.slug}`
     )
       .then((res) => res.json())
       .catch((e) => context.error(e));
